@@ -719,10 +719,10 @@
   #if ENABLED(NEOPIXEL_LED)
     //#define CASE_LIGHT_USE_NEOPIXEL         // Use NeoPixel LED as case light
   #endif
-  #if EITHER(RGB_LED, RGBW_LED)
-    //#define CASE_LIGHT_USE_RGB_LED          // Use RGB / RGBW LED as case light
+  #if EITHER(GRB_LED, GRBW_LED)
+    //#define CASE_LIGHT_USE_GRB_LED          // Use RGB / RGBW LED as case light
   #endif
-  #if EITHER(CASE_LIGHT_USE_NEOPIXEL, CASE_LIGHT_USE_RGB_LED)
+  #if EITHER(CASE_LIGHT_USE_NEOPIXEL, CASE_LIGHT_USE_GRB_LED)
     #define CASE_LIGHT_DEFAULT_COLOR { 255, 255, 255, 255 } // { Red, Green, Blue, White }
   #endif
 #endif

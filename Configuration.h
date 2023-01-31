@@ -1171,14 +1171,14 @@
  * Override with M92
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 2560, 100 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 2560, 95 }
 
 /**
  * Default Max Feed Rate (linear=mm/s, rotational=°/s)
  * Override with M203
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 280, 280, 4, 25 }
+#define DEFAULT_MAX_FEEDRATE          { 260, 260, 4, 25 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -1191,7 +1191,7 @@
  * Override with M201
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 400, 400, 6, 9000 }
+#define DEFAULT_MAX_ACCELERATION      { 350, 350, 6, 8000 }
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
@@ -1207,8 +1207,8 @@
  *   M204 T    Travel Acceleration
  */
 #define DEFAULT_ACCELERATION           400    // X, Y, Z and E acceleration for printing moves
-#define DEFAULT_RETRACT_ACCELERATION   500    // E acceleration for retracts
-#define DEFAULT_TRAVEL_ACCELERATION    500    // X, Y, Z acceleration for travel (non printing) moves
+#define DEFAULT_RETRACT_ACCELERATION   400    // E acceleration for retracts
+#define DEFAULT_TRAVEL_ACCELERATION    400    // X, Y, Z acceleration for travel (non printing) moves
 
 /**
  * Default Jerk limits (mm/s)
@@ -2218,7 +2218,7 @@
 // Preheat Constants - Up to 10 are supported without changes
 //
 #define PREHEAT_1_LABEL       "PLA"
-#define PREHEAT_1_TEMP_HOTEND  200
+#define PREHEAT_1_TEMP_HOTEND  220
 #define PREHEAT_1_TEMP_BED     55
 #define PREHEAT_1_TEMP_CHAMBER 35
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
@@ -3281,17 +3281,17 @@
  */
 
 // LED Type. Enable only one of the following two options:
-//#define RGB_LED
+//#define GRB_LED
 //#define RGBW_LED
 
-#if EITHER(RGB_LED, RGBW_LED)
+#if EITHER(GRB_LED, RGBW_LED)
   //#define RGB_LED_R_PIN 34
   //#define RGB_LED_G_PIN 43
   //#define RGB_LED_B_PIN 35
   //#define RGB_LED_W_PIN -1
   //#define RGB_STARTUP_TEST              // For PWM pins, fade between all colors
-  #if ENABLED(RGB_STARTUP_TEST)
-    #define RGB_STARTUP_TEST_INNER_MS 10  // (ms) Reduce or increase fading speed
+  #if ENABLED(GRB_STARTUP_TEST)
+    #define GRB_STARTUP_TEST_INNER_MS 10  // (ms) Reduce or increase fading speed
   #endif
 #endif
 
@@ -3303,17 +3303,17 @@
   #define NEOPIXEL_PIN                4 // LED driving pin
   //#define NEOPIXEL2_TYPE  NEOPIXEL_TYPE
   //#define NEOPIXEL2_PIN               5
-  #define NEOPIXEL_PIXELS              21 // Number of LEDs in the strip. (Longest strip when NEOPIXEL2_SEPARATE is disabled.)
+  #define NEOPIXEL_PIXELS              30 // Number of LEDs in the strip. (Longest strip when NEOPIXEL2_SEPARATE is disabled.)
   #define NEOPIXEL_IS_SEQUENTIAL          // Sequential display for temperature change - LED by LED. Disable to change all LEDs at once.
-  #define NEOPIXEL_BRIGHTNESS          40 // Initial brightness (0-255)
+  #define NEOPIXEL_BRIGHTNESS          35 // Initial brightness (0-255)
   #define NEOPIXEL_STARTUP_TEST         // Cycle through colors at startup
 
   // Support for second Adafruit NeoPixel LED driver controlled with M150 S1 ...
   //#define NEOPIXEL2_SEPARATE
   #if ENABLED(NEOPIXEL2_SEPARATE)
    // #define NEOPIXEL2_PIXELS           15 // Number of LEDs in the second strip
-    #define NEOPIXEL2_BRIGHTNESS      50 // Initial brightness (0-255)
-    #define NEOPIXEL2_STARTUP_TEST        // Cycle through colors at startup
+   // #define NEOPIXEL2_BRIGHTNESS      50 // Initial brightness (0-255)
+   // #define NEOPIXEL2_STARTUP_TEST        // Cycle through colors at startup
     #define NEOPIXEL_M150_DEFAULT      -1 // Default strip for M150 without 'S'. Use -1 to set all by default.
   #else
     //#define NEOPIXEL2_INSERIES          // Default behavior is NeoPixel 2 in parallel
@@ -3337,7 +3337,7 @@
  *  - Change to green once print has finished
  *  - Turn off after the print has finished and the user has pushed a button
  */
-#if ANY(BLINKM, RGB_LED, RGBW_LED, PCA9632, PCA9533, NEOPIXEL_LED)
+#if ANY(BLINKM, GRB_LED, RGBW_LED, PCA9632, PCA9533, NEOPIXEL_LED)
   #define PRINTER_EVENT_LEDS
 #endif
 
