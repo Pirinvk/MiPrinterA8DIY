@@ -2519,10 +2519,10 @@
   #define FWRETRACT_AUTORETRACT             // Override slicer retractions
   #if ENABLED(FWRETRACT_AUTORETRACT)
     #define MIN_AUTORETRACT             0.1 // (mm) Don't convert E moves under this length
-    #define MAX_AUTORETRACT            10.0 // (mm) Don't convert E moves over this length
+    #define MAX_AUTORETRACT            6.0 // (mm) Don't convert E moves over this length
   #endif
-  #define RETRACT_LENGTH                3   // (mm) Default retract length (positive value)
-  #define RETRACT_LENGTH_SWAP          13   // (mm) Default swap retract length (positive value)
+  #define RETRACT_LENGTH                 2  // (mm) Default retract length (positive value)
+  #define RETRACT_LENGTH_SWAP          12   // (mm) Default swap retract length (positive value)
   #define RETRACT_FEEDRATE             45   // (mm/s) Default feedrate for retracting
   #define RETRACT_ZRAISE                0   // (mm) Default retract Z-raise
   #define RETRACT_RECOVER_LENGTH        0   // (mm) Default additional recover length (added to retract length on recover)
@@ -2664,7 +2664,7 @@
   //#define ADVANCED_PAUSE_FANS_PAUSE             // Turn off print-cooling fans while the machine is paused.
 
                                                   // Filament Unload does a Retract, Delay, and Purge first:
-  #define FILAMENT_UNLOAD_PURGE_RETRACT       13  // (mm) Unload initial retract length.
+  #define FILAMENT_UNLOAD_PURGE_RETRACT       12  // (mm) Unload initial retract length.
   #define FILAMENT_UNLOAD_PURGE_DELAY       5000  // (ms) Delay for the filament to cool after retract.
   #define FILAMENT_UNLOAD_PURGE_LENGTH         8  // (mm) An unretract is done, then this length is purged.
   #define FILAMENT_UNLOAD_PURGE_FEEDRATE      25  // (mm/s) feedrate to purge before unload
@@ -4159,7 +4159,7 @@
       {  60.0, MMU2_CAN_LOAD_FEEDRATE }, \
       { -52.0, MMU2_CAN_LOAD_FEEDRATE }
 
-    #define MMU2_CAN_LOAD_RETRACT   6.0   // (mm) Keep under the distance between Load Sequence values
+    #define MMU2_CAN_LOAD_RETRACT   5.0   // (mm) Keep under the distance between Load Sequence values
     #define MMU2_CAN_LOAD_DEVIATION 0.8   // (mm) Acceptable deviation
 
     #define MMU2_CAN_LOAD_INCREMENT 0.2   // (mm) To reuse within MMU2 module
